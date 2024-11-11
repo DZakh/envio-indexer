@@ -1,0 +1,27 @@
+{
+  "name": "envio-indexer",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "rescript clean",
+    "build": "rescript",
+    "watch": "rescript -w",
+    "mocha": "pnpm build && mocha",
+    "codegen": "envio codegen",
+    "dev": "pnpm build && envio dev",
+    "test": "pnpm mocha",
+    "start": "pnpm build && node generated/src/Index.bs.js"
+  },
+  "devDependencies": {
+    "@rescript/react": "0.12.1", 
+    "@glennsl/rescript-fetch": "0.2.0",
+    "@ryyppy/rescript-promise": "2.1.0",
+    "rescript": "11.1.3",
+    "mocha": "10.2.0"
+  },
+  "dependencies": {
+    "envio": "2.7.3"
+  },
+  "optionalDependencies": {
+    "generated": "./generated"
+  }
+}

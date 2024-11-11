@@ -1,0 +1,24 @@
+{
+  "name": "greeter",
+  "version": "0.1.0",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "test",
+      "subdirs": true
+    }
+  ],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "jsx": {
+    "version": 4
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": ["generated", "@ryyppy/rescript-promise"],
+  "pinned-dependencies": ["generated"]
+}
