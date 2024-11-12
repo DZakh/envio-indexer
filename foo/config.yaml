@@ -24,4 +24,4 @@ networks:
         address: 0xdEe21B97AB77a16B4b236F952e586cf8408CF32A
 # Rollback on reorg mode currently incurs a performance hit on historical sync
 # while developing an indexer we recommend setting this to false
-rollback_on_reorg: false
+# rollback_on_reorg: false
