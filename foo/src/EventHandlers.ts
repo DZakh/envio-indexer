@@ -2,6 +2,8 @@ import { Greeter, User } from "generated";
 
 // Handler for the NewGreeting event
 Greeter.NewGreeting.handler(async ({ event, context }) => {
+  console.log(process.env.ENVIO_TEST);
+
   const userId = event.params.user;
   const latestGreeting = event.params.greeting;
   const currentUserEntity: User | undefined = await context.User.get(userId);
@@ -9,17 +11,17 @@ Greeter.NewGreeting.handler(async ({ event, context }) => {
   // Update or create a new User entity
   const userEntity: User = currentUserEntity
     ? {
-      id: userId,
-      latestGreeting,
-      numberOfGreetings: currentUserEntity.numberOfGreetings + 1,
-      greetings: [...currentUserEntity.greetings, latestGreeting],
-    }
+        id: userId,
+        latestGreeting,
+        numberOfGreetings: currentUserEntity.numberOfGreetings + 1,
+        greetings: [...currentUserEntity.greetings, latestGreeting],
+      }
     : {
-      id: userId,
-      latestGreeting,
-      numberOfGreetings: 1,
-      greetings: [latestGreeting],
-    };
+        id: userId,
+        latestGreeting,
+        numberOfGreetings: 1,
+        greetings: [latestGreeting],
+      };
 
   context.User.set(userEntity);
 });
@@ -37,4 +39,3 @@ Greeter.ClearGreeting.handler(async ({ event, context }) => {
     });
   }
 });
-
