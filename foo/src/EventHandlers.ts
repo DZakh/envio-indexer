@@ -2,7 +2,7 @@ import { Greeter, User } from "generated";
 
 // Handler for the NewGreeting event
 Greeter.NewGreeting.handler(async ({ event, context }) => {
-  console.log(process.env.ENVIO_TEST);
+  context.log.info("new greeting" + (process.env.ENVIO_TEST || "not found"));
 
   const userId = event.params.user;
   const latestGreeting = event.params.greeting;
@@ -28,6 +28,8 @@ Greeter.NewGreeting.handler(async ({ event, context }) => {
 
 // Handler for the ClearGreeting event
 Greeter.ClearGreeting.handler(async ({ event, context }) => {
+  context.log.info("clear greeting" + (process.env.ENVIO_TEST || "not found"));
+
   const userId = event.params.user;
   const currentUserEntity: User | undefined = await context.User.get(userId);
 
